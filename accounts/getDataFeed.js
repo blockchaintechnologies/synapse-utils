@@ -6,6 +6,8 @@
      decrypted in the previous step. It will shows up as encrypted or not even show up at all). 
 */
 const crypto = require('crypto');
+const IPFS = require('ipfs')
+const node = new IPFS()
 
 
 const { generateNonce} = require('a-nonce-generator');
@@ -16,6 +18,10 @@ uuid();
 
 //ecdh.generateKeys([encoding[,format]]); TODO
 
+node.on('ready', () => {
+   
+}
+        
 
 
 
