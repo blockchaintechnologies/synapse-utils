@@ -16,7 +16,10 @@ const nonce = generateNonce();
 const uuid = require('uuid-random');
 uuid();
 
-//create a key pair
+//create a key pair & cipher
+
+var cipher = crypto.createCipher();
+
 //ecdh.generateKeys([encoding[,format]]); TODO
 
 node.on('ready', () => {
@@ -28,6 +31,8 @@ node.on('ready', () => {
 //verify the publisher's key as someone who is selling the feed
         
 //decrypt the information with the cipher if its the valid/verified person
+   var decipher = crypto.createDecipher();
+
         if(the nonce is the same as nonce up top){        
 }
         else {
