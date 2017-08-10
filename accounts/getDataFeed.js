@@ -19,7 +19,9 @@ uuid();
 //ecdh.generateKeys([encoding[,format]]); TODO
 
 node.on('ready', () => {
-   
+   EXPERIMENTAL:{
+     pubsub: true;
+   } 
 }
         
 
