@@ -28,7 +28,11 @@ node.on('ready', () => {
 //verify the publisher's key as someone who is selling the feed
         
 //decrypt the information with the cipher if its the valid/verified person
-        
+        if(the nonce is the same as nonce up top){        
+}
+        else {
+           throw;
+        }
 //show the decrypted code and if not decrypted you can show the encrypted code with an error or nothing at all except error
         
   
