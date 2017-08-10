@@ -5,14 +5,20 @@
    - display all the infromation for the subscriber once the data has been  decrypted ( The data will not be shown as decrypted if its not 
      decrypted in the previous step. It will shows up as encrypted or not even show up at all). 
 */
+const crypto = require('crypto');
+
 
 const { generateNonce} = require('a-nonce-generator');
 const nonce = generateNonce();
 
-const var uuid = require('uuid-random');
+const uuid = require('uuid-random');
 uuid();
 
-//ecdh.generateKeys([encoding[,format]]);
+//ecdh.generateKeys([encoding[,format]]); TODO
+
+
+
+
 
 
 
