@@ -1,0 +1,21 @@
+﻿1. open the terminal type
+ipfs daemon
+
+2.open python 2 console 
+
+import  ipfsapi
+api = ipfsapi.connect('127.0.0.1', 5001)
+res = api.add('file address')
+api.id()
+
+3.run testrpc
+4.write in python console
+from web3 import Web3, HTTPProvider, IPCProvider
+ web3 = Web3(HTTPProvider('http://localhost:8545'))
+
+4.deploy contract on testrpc using truffle
+contract will have one function taking input id of node and hash of file
+yet to do
+5. use python console and web3 to interact with contract. 
+
+
