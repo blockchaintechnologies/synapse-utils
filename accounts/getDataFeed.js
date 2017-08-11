@@ -20,7 +20,7 @@ uuid();
 
 var cipher = crypto.createCipher();
 
-//ecdh.generateKeys([encoding[,format]]); TODO
+crypto.ecdh.generateKeys(['hex', 'compressed']); 
 
 node.on('ready', () => {
    EXPERIMENTAL:{
