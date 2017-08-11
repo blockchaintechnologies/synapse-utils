@@ -24,6 +24,9 @@ const pubRoomKeySecret = pubRoomKey.computeSecret.(pubRoom_Key);
 
 //encrypt key pair -TODO
 
+var cipher = crypto.createCipher();//kinda like this, will come back to in a bit
+
+
 //get IPFS connection w. pubsub
 node.on('ready', () => {
    EXPERIMENTAL:{
