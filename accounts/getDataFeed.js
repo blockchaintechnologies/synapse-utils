@@ -14,14 +14,13 @@ const {generateNonce} = require('a-nonce-generator');
 const nonce = generateNonce();
 
 //creates the pubsub room
-const uuid = require('uuid-random');
-uuid();
+const uuid = require('uuid-random')();
 
 //create a key pair &  generate exchange the keys
-const pubRoomKey = crypto.create.ECDH('secp521r');
-const pubRoom_Key = pubRoomKey.generateKeys('hex', 'compressed');
+const pubRoomPriKey = crypto.createECDH('secp521r');
+const pubRoomPubKey = pubRoomKey.generateKeys('hex', 'compressed');
 
-const pubRoomKeySecret = pubRoomKey.computeSecret.(pubRoom_Key);
+const pubRoomKeySecret = pubRoomPriKey.computeSecret(pubRoomPubKey);
 
 //encrypt key pair -TODO
 
