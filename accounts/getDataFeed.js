@@ -40,5 +40,5 @@ const receiveMsg = (msg) => {
   console.log(msg.toString()
 }
               
-ipfs.pubsub.subscribe(topic, receiveMsg)
+ipfs.pubsub.subscribe(topic, receiveMsg, uuid)
         
