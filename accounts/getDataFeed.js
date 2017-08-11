@@ -33,7 +33,12 @@ node.on('ready', () => {
      pubsub: true;
    }
 }
+//subscribe to the pubsub channel & ipfs.pubsub.subscribe(topic, options, handler, callback)    
+const topic = 'projected-message-data-feed'
 
-//subscribe to the pubsub channel
-        
+const receiveMsg = (msg) => {
+  console.log(msg.toString()
+}
+              
+ipfs.pubsub.subscribe(topic, receiveMsg)
         
