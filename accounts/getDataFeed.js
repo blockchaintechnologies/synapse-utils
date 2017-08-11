@@ -8,6 +8,8 @@ const crypto = require('crypto');
 const IPFS = require('ipfs')
 const node = new IPFS()
 
+class getDataFeed { 
+
 //generate the Nonce you need to do npm install -a-nonce-generator
 const {generateNonce} = require('a-nonce-generator');
 const nonce = generateNonce();
@@ -42,3 +44,4 @@ const receiveMsg = (msg) => {
               
 ipfs.pubsub.subscribe(topic, receiveMsg, uuid)
         
+}
