@@ -16,11 +16,11 @@ const nonce = generateNonce();
 const uuid = require('uuid-random');
 uuid();
 
-//create a key pair & cipher
+//create a key pair &  generate secret key
+const pubRoomKey = crypto.create.ECDH('secp521r');
+const pubRoom_Key = pubRoomKey.generateKeys('hex', 'compressed');
 
-var cipher = crypto.createCipher();
-
-publicKey= crypto.ECDH.generateKeys(['hex', 'compressed']); 
+const pubRoomKeySecret = pubRoomKey.computeSecret.(pubRoom_Key);
 
 node.on('ready', () => {
    EXPERIMENTAL:{
