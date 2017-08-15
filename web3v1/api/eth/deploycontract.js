@@ -1,12 +1,11 @@
 const Web3 = require('web3');
-//const web3 = new Web3();
 const fs = require('fs');
-//const solc = require('solc');
+
 const RPC_HOST = "http://localhost:8545";
 
 const web3 = new Web3(new Web3.providers.HttpProvider(RPC_HOST));
 const ADDRESS="0xe728a0db5aee26fab4e3ea18819fda9329dab100";
-const CONTRACT_NAME = "DelphiToken";
+const CONTRACT_NAME = "Token";
 
 let abi = JSON.parse(fs.readFileSync(CONTRACT_NAME+'_abi.json').toString());
 let bytecode = fs.readFileSync(CONTRACT_NAME+'_bytecode.txt').toString();
@@ -29,4 +28,3 @@ myContract.deploy({data:bytecode, arguments:[]})
 .then(function(newContractInstance){
     console.log(6) // instance with the new contract address
 });
-
