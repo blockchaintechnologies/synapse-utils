@@ -7,6 +7,7 @@ const RPC_HOST = config.network;
 //const RPC_HOST = "http://localhost:8545";
 
 const web3 = new Web3(new Web3.providers.HttpProvider(RPC_HOST));
+//todo: check error
 
 let privateKey =  config.account.privatekey;
 
@@ -40,7 +41,6 @@ function deployContract(contractInstance, bytecode, contractArgs){
 }
 //they both work ¯\_(ツ)_/¯
 function deployContract2(contractInstance, bytecode, contractArgs){
-    //does not actually return a new contract instance :(
     return contractInstance.deploy({data:"0x"+bytecode, arguments:contractArgs})
     .send({
         from: myAddr,
@@ -50,16 +50,22 @@ function deployContract2(contractInstance, bytecode, contractArgs){
     .once('error', (error) => {console.log(2,error)})
     .once('transactionHash', (transactionHash) => { console.log(3,transactionHash) })
     .once('receipt', (receipt) => {
-        console.log(4, receipt.contractAddress) // contains the new contract address
+        console.log(4, receipt.contractAddress) 
     })
+    // contains the new contract address
+    //does not actually return a new contract instance :(
+    .then((receipt)=>{
+        contractInstance.options.address = receipt.contractAddress;
+    });
 }
 
 const myAddr = web3.eth.accounts.wallet[0].address; 
 
-deployContract2(myContract, bytecode, [])
-.then((receipt)=>{
-    myContract.options.address = receipt.contractAddress;
-    return myContract.methods.mintToken(myAddr,1000).send({from:myAddr, gas:4000000})
+let contractPromise = deployContract2(myContract, bytecode, [])
+
+//test function calls
+contractPromise.then(()=>{
+    return myContract.methods.mintToken(myAddr,1234).send({from:myAddr, gas:4000000});
 })
 //.on ("error", console.log)
 .then((receipt)=>{
